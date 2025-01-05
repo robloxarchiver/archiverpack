@@ -1,4 +1,4 @@
-const ver = "v2.0.4-private";
+const ver = "v2.0.4-public";
 
 const { execFile } = require("child_process");
 const path = require("path");
