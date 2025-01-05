@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "bun_build",
+            "type": "shell",
+            "windows": {
+                "command": "bun \"./packer/packer.js\""
+            },
+            "linux": {
+                "command": "bun \"./packer/packer.js\""
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "node_build",
+            "type": "shell",
+            "windows": {
+                "command": "node \"./packer/packer.js\""
+            },
+            "linux": {
+                "command": "node \"./packer/packer.js\""
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        }
+    ],
+}

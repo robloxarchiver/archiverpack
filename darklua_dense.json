@@ -1,0 +1,24 @@
+{
+    "generator": {
+        "name": "dense",
+        "column_span": 9999999999999999
+    },
+    "process": [
+        "compute_expression",
+        "convert_index_to_field",
+        "convert_local_function_to_assign",
+        "remove_assertions",
+        "remove_comments",
+        "remove_compound_assignment",
+        "remove_continue",
+        "remove_debug_profiling",
+        "remove_empty_do",
+        "remove_floor_division",
+        "remove_function_call_parens",
+        "remove_interpolated_string",
+        "remove_if_expression",
+        "remove_nil_declaration",
+        "remove_spaces",
+        "remove_unused_variable"
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "robloxLsp.diagnostics.globals": [
+        "BUILD_NUMBER",
+        "IMPORT_MULTI",
+        "IMPORT_DIR",
+        "IMPORT",
+        "clonefunction",
+        "getgenv",
+        "GameGetService",
+        "Niggerware",
+        "XPCall",
+        "PCall",
+        "BUILD_TIMESTAMP"
+    ]
+}
