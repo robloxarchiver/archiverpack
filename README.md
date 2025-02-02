@@ -1,5 +1,3 @@
-# [Join the Official Discord for help](https://discord.gg/gPrAssSQWy)
-
 For my great friend, Topit. The original creator of [RedlinePack](https://github.com/topitbopit/RedlinePack).
 
 > Maybe I should make some of the changes here to the original one
