@@ -1,4 +1,4 @@
-const ver = "v2.0.4-public";
+const ver = "v2.0.5-public";
 
 const { execFile } = require("child_process");
 const path = require("path");
@@ -7,13 +7,13 @@ const fs = require("fs");
 const currentTimestamp = Date.now();
 
 let config; // setting config
-if (fs.existsSync("bundler.json")) {
-	config = JSON.parse(fs.readFileSync("bundler.json").toString());
+if (fs.existsSync("packer.json")) {
+	config = JSON.parse(fs.readFileSync("packer.json").toString());
 } else {
 	config = {
 		// file input / output
 		inputFile: "src/main.luau",
-		outputFile: "compiled.luau",
+		outputFile: "bin/build.luau",
 
 		// import keywords
 		keywordSingle: "IMPORT",
@@ -35,7 +35,7 @@ if (fs.existsSync("bundler.json")) {
 		verboseLogs: true, // logs more debug information
 	};
 
-	fs.writeFileSync("bundler.json", JSON.stringify(config));
+	fs.writeFileSync("packer.json", JSON.stringify(config));
 }
 
 // console colors
@@ -107,7 +107,7 @@ function getIndentAmnt(contents, importStatement) {
 
 // Process with Darklua - Thrown up here for consistency
 function darkluaProcess(configFile) {
-	execFile("packer/darklua.exe", [ "process", "--config", configFile, config.outputFile, config.outputFile ], (error, stdout, stderr) => {
+	execFile("darklua", [ "process", "--config", configFile, config.outputFile, config.outputFile ], (error, stdout, stderr) => {
 		if (error) {
 			console.log(tags.warn + "Minification failed; using default output instead" + tags.reset);
 			console.log(tags.error + "Error: " + error + tags.reset);
@@ -487,9 +487,9 @@ fs.writeFileSync(config.outputFile, result);
 
 if (config.minifyOutput === true) {
 	console.log(tags.info + "Minifying output" + tags.reset);
-	darkluaProcess("darklua_dense.json");
+	darkluaProcess("packer/darklua_dense.json");
 } else {
-	darkluaProcess("darklua_retainlines.json");
+	darkluaProcess("packer/darklua_retainlines.json");
 }
 
 console.log(

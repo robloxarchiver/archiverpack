@@ -6,34 +6,16 @@ For my great friend, Topit. The original creator of [RedlinePack](https://github
 
 # Requirements
 
-* Visual Studio Code
-* [Node](https://nodejs.org/) or [Bun](https://bun.sh/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [Roblox LSP](https://marketplace.visualstudio.com/items?itemName=Nightrains.robloxlsp)
+* [Rokit](https://github.com/rojo-rbx/rokit)
+* [Bun](https://bun.sh/)
 
-> Roblox LSP is optional but highly recommended
+> Node works too but I like bun :p
 
 # First Time Usage
 
-Setting up the environment for usage is very easy and straight forward.
-
-First start with installing the required packages:
-
-##### Bun
-
-```sh
-bun install
-```
-
-##### Node
-
-```sh
-npm install
-```
-
-Then select the current build task depending on what you have installed. To pull up the menu press `CTRL + SHIFT + B` or whatever keybind you have setup currently for running build tasks.  
-You can also go into the top bar and press `Terminal` and then `Run Build Task...` or you can open the VSC command line and run the Build Task through that.
-
-Once you select the Build Task to use (Based on whether you use Node or Bun), press `CTRL + SHIFT + B` and you are done.
+Setting up the environment for usage is very easy and straight forward. Install Rokit, and run `rokit install` to install `darklua`. Then select the current build task depending on what you have installed. To pull up the menu press `CTRL + SHIFT + B` or whatever keybind you have setup currently for running build tasks. You can also go into the top bar and press `Terminal` and then `Run Build Task...` or you can open the VSC command line and run the Build Task through that. Once you select the Build Task to use (Based on whether you use Node or Bun), press `CTRL + SHIFT + B` and you are done.
 
 # Packer Macros
 
