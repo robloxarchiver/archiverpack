@@ -1,8 +1,8 @@
-const ver = "v2.0.5-public";
+const ver = "v2.0.6-public";
 
-const { execFile } = require("child_process");
+const childProcess = require("child_process");
 const path = require("path");
-const fs = require("fs");
+const fs = require("fs-extra");
 
 const currentTimestamp = Date.now();
 
@@ -35,7 +35,7 @@ if (fs.existsSync("packer.json")) {
 		verboseLogs: true, // logs more debug information
 	};
 
-	fs.writeFileSync("packer.json", JSON.stringify(config));
+	fs.writeFileSync("packer.json", JSON.stringify(config, null, "\t"));
 }
 
 // console colors
@@ -107,7 +107,7 @@ function getIndentAmnt(contents, importStatement) {
 
 // Process with Darklua - Thrown up here for consistency
 function darkluaProcess(configFile) {
-	execFile("darklua", [ "process", "--config", configFile, config.outputFile, config.outputFile ], (error, stdout, stderr) => {
+	childProcess.execFile("darklua", [ "process", "--config", configFile, config.outputFile, config.outputFile ], (error, stdout, stderr) => {
 		if (error) {
 			console.log(tags.warn + "Minification failed; using default output instead" + tags.reset);
 			console.log(tags.error + "Error: " + error + tags.reset);
@@ -483,7 +483,7 @@ logConsole("Created new Packer");
 let { status, result } = thisPacker.parseFile(config.inputFile);
 logConsole("Finished packing");
 
-fs.writeFileSync(config.outputFile, result);
+fs.outputFileSync(config.outputFile, result);
 
 if (config.minifyOutput === true) {
 	console.log(tags.info + "Minifying output" + tags.reset);
