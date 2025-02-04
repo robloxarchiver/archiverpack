@@ -1,6 +1,15 @@
-For my great friend, Topit. The original creator of [RedlinePack](https://github.com/topitbopit/RedlinePack).
+For my great friend, [Topit](@topitbopit). The original creator of [RedlinePack](https://github.com/topitbopit/RedlinePack), which ASP is a fork of.
 
-> Maybe I should make some of the changes here to the original one
+<!-- If the @topitbopit doesn't work remove it please! -->
+
+# Archiver's Script Packer
+
+A bundler/packer for scripts in a template form so it's easy for anyone to use. Streamlined and currently pending a rewrite. Originally this was an internal tool used at NW. 
+
+## Index
+* [Requirements](#requirements)
+* [First Time Usage](#first-time-usage)
+* [Macros](#macros)
 
 # Requirements
 
@@ -11,19 +20,25 @@ For my great friend, Topit. The original creator of [RedlinePack](https://github
 
 # First Time Usage
 
+Using ASP for the first time can be pretty jarring if you're a novice. I've broken everything down to be easy to understand even for the noobiest of people. :p
+
 ## Preparing for usage
 
-Preparing to use AST is simple, this is the only part you are required to do if it's your first time. If you already have Bun/Node, an IDE and Rokit installed, you can move on to the next part below this.
+Preparing to use ASP is simple, this is the only part you are required to do if it's your first time. If you already have Bun/Node, an IDE and Rokit installed, you can move on to the next part below this.
 
 3. Install your IDE of choice, for the sake of standards [Visual Studio Code](https://code.visualstudio.com/) is used.
 2. Go to [Rokit](https://github.com/rojo-rbx/rokit/releases) and download the latest release. (Restart may be required)
 1. Go to [bun.sh](https://bun.sh/) and install bun. (Alternative: [Node.js](https://nodejs.org/en))
 
+---
+
 ## Setting up for usage
 
 1. Run `bun install` to install the package required (`fs-extra`)
 2. Run `rokit install` to install the package required (`darklua`)
-3. Now you are ready to use AST. 
+3. Now you are ready to use ASP. 
+
+---
 
 ## Building with VSC
 
@@ -33,7 +48,7 @@ Press `CTRL + SHIFT + B` or head to the top bar, press `Terminal` and `Run Build
 
 # Macros
 
-Macros are the foundation of AST, and the reason you are using it. Macros can be modified in any way, such as changing the name if you'd like. This is just base documentation for each and what it does.  
+Macros are the foundation of ASP, and the reason you are using it. Macros can be modified in any way, such as changing the name if you'd like. This is just base documentation for each and what it does.  
 Note that Macros are **not** created in the lua environment.
 
 ---
