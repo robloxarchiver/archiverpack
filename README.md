@@ -7,54 +7,95 @@ For my great friend, Topit. The original creator of [RedlinePack](https://github
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Roblox LSP](https://marketplace.visualstudio.com/items?itemName=Nightrains.robloxlsp)
 * [Rokit](https://github.com/rojo-rbx/rokit)
-* [Bun](https://bun.sh/)
-
-> Node works too but I like bun :p
+* [Bun](https://bun.sh/) or [Node](https://nodejs.org/)
 
 # First Time Usage
 
-Setting up the environment for usage is very easy and straight forward. Install Rokit, and run `rokit install` to install `darklua`. Then select the current build task depending on what you have installed. To pull up the menu press `CTRL + SHIFT + B` or whatever keybind you have setup currently for running build tasks. You can also go into the top bar and press `Terminal` and then `Run Build Task...` or you can open the VSC command line and run the Build Task through that. Once you select the Build Task to use (Based on whether you use Node or Bun), press `CTRL + SHIFT + B` and you are done.
+## Preparing for usage
 
-# Packer Macros
+Preparing to use AST is simple, this is the only part you are required to do if it's your first time. If you already have Bun/Node, an IDE and Rokit installed, you can move on to the next part below this.
 
-> Notice: Packer macros are not actual functions and cannot be modified in any way via Lua.
+3. Install your IDE of choice, for the sake of standards [Visual Studio Code](https://code.visualstudio.com/) is used.
+2. Go to [Rokit](https://github.com/rojo-rbx/rokit/releases) and download the latest release. (Restart may be required)
+1. Go to [bun.sh](https://bun.sh/) and install bun. (Alternative: [Node.js](https://nodejs.org/en))
 
-## `IMPORT(path: string)`
+## Setting up for usage
 
-Import simply grabs the code and wraps it in a anonymous function call. It's very easy to use and even easier to assign to a variable, just like `require`.
+1. Run `bun install` to install the package required (`fs-extra`)
+2. Run `rokit install` to install the package required (`darklua`)
+3. Now you are ready to use AST. 
+
+## Building with VSC
+
+Press `CTRL + SHIFT + B` or head to the top bar, press `Terminal` and `Run Build Task`.
+
+> Notice: If you are not using VSC a build script is provided (`build.ps1`)
+
+# Macros
+
+Macros are the foundation of AST, and the reason you are using it. Macros can be modified in any way, such as changing the name if you'd like. This is just base documentation for each and what it does.  
+Note that Macros are **not** created in the lua environment.
+
+---
+
+## IMPORT
+
+Imports the file at the designated path. If the file is in `src/myfile.luau`, you would write: `IMPORT("src/myfile.luau")`.
 
 ```lua
-IMPORT("src/Something/A.lua")
-
-local myModule = IMPORT("src/Library/Stuff.lua")
-
-myModule.DoSomething() --> Note you can make modules easily via following the normal format.
+IMPORT(path: string);
 ```
 
-## `IMPORT_RAW(path: string)`
+## IMPORT_RAW
 
-Look at import. Doesn't wrap import in an anonymous function. (`(function() end)()`)
-
-## `IMPORT_DIR(path: string)`
-
-`IMPORT_DIR` simply grabs all the files inside of the selected directory and wraps it in `do end`'s. Please note that this will import EVERYTHING inside that folder, try to avoid double imports by accident.
+The same as import, but does not wrap the import in an anonymous function.
 
 ```lua
-IMPORT_DIR("src/MyFolder/")
+IMPORT_RAW(path: string);
 ```
 
-## `IMPORT_MULTI(...: string)`
+---
 
-`IMPORT_MULTI` grabs every file you add and adds it into a single function.
+## IMPORT_DIR
+
+Imports all the files in the path. If the path is `src/modules`, you would write: `IMPORT_DIR("src/modules")`.
 
 ```lua
-IMPORT_MULTI("src/MyFile.lua", "src/Aaaa.lua")
+IMPORT_DIR(path: string);
 ```
 
-## `BUILD_TIMESTAMP(when: string)`
+---
 
-`BUILD_TIMESTAMP` is pretty much the current UNIX timestamp.
+## IMPORT_MULTI
+
+Adds each file into a single import. `IMPORT_MULTI("src/test.luau", "src/other.luau")`
 
 ```lua
-BUILD_TIMESTAMP("now")
+IMPORT_MULTI(path...: string);
+```
+
+---
+
+## BUILD_TIMESTAMP
+
+Adds a UNIX timestamp of the date on build. Added this as a personal function since I use it a lot. Has a weird kink in some instances by the way, for anyone that may use this depending on how you use it, it will delete a ) next to it. So you'll have to add an extra one to prevent errors on build, so your LSP will freak out:
+
+```lua
+table.freeze({
+    create_window = IMPORT("src/window.luau"),
+    build_date = os.date("%c", BUILD_TIMESTAMP())) --> Extra ), doesn't error on build
+});
+```
+
+If you can find a fix for this (most likely the shit regex topit wrote <3), please feel free to make a pull request to fix it. May be fixed in the rewrite when I get to that eventually. If you do not want errors just use it as the following:
+
+```lua
+local __TIMESTAMP = BUILD_TIMESTAMP();
+local BUILD_DATE = os.date("%c", __TIMESTAMP);
+```
+
+Oh right, back to documentation.
+
+```lua
+BUILD_TIMESTAMP();
 ```
