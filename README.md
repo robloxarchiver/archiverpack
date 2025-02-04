@@ -1,8 +1,12 @@
-For my great friend, [Topit](@topitbopit). The original creator of [RedlinePack](https://github.com/topitbopit/RedlinePack), which ASP is a fork of.
+<div align="center">
+    ![license](https://img.shields.io/github/license/robloxarchiver/archiverpack)
+    ![release](https://img.shields.io/github/v/release/robloxarchiver/archiverpack)
+    ![downloads](https://img.shields.io/github/downloads/robloxarchiver/archiverpack/total)
 
-<!-- If the @topitbopit doesn't work remove it please! -->
+    For my great friend, Topit. The original creator of [RedlinePack](https://github.com/topitbopit/RedlinePack).
+</div>
 
-# Archiver's Script Packer
+# archiverpack
 
 A bundler/packer for scripts in a template form so it's easy for anyone to use. Streamlined and currently pending a rewrite. Originally this was an internal tool used at NW. 
 
