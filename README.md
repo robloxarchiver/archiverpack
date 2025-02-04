@@ -1,7 +1,7 @@
 <div align="center">
-![license](https://img.shields.io/github/license/robloxarchiver/archiverpack)
-![release](https://img.shields.io/github/v/release/robloxarchiver/archiverpack)
-![downloads](https://img.shields.io/github/downloads/robloxarchiver/archiverpack/total)
+<img alt="GitHub License" src="https://img.shields.io/github/license/robloxarchiver/archiverpack">
+<img alt="GitHub Release" src="https://img.shields.io/github/v/release/robloxarchiver/archiverpack">
+<img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/robloxarchiver/archiverpack/total">
 
 For my great friend, Topit. The original creator of [RedlinePack](https://github.com/topitbopit/RedlinePack).
 </div>
