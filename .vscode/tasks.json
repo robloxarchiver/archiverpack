@@ -2,23 +2,13 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "bun_build",
+            "label": "build",
             "type": "shell",
-            "command": "bun ./packer/packer.js",
+            "command": "./build.ps1",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
-        },
-        {
-            "label": "node_build",
-            "type": "shell",
-            "command": "node ./packer/packer.js",
-            "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": false
             }
         }
     ],
